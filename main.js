@@ -41,18 +41,18 @@ function playerPlay() {
   count = 0;
   playing = true;
   while (playing) {
-    playerInput = prompt("Enter your selection");
-    playerInput = playerInput.toLowerCase();
-    if (playerInput) {
-      // Player hit cancel or entered a empty string
+    playerInput = prompt("Enter your selection (rock, paper, scissors)");
+    if (!playerInput) {
       alert("Please input an allowed value");
       count++;
       if (count == 3) {
         alert("Player has left the match");
-        playing = false;
+        return "forfeit";
       }
       continue;
-    } else if (
+    }
+    playerInput = playerInput.toLowerCase();
+    if (
       playerInput != "rock" &&
       playerInput != "paper" &&
       playerInput != "scissors"
@@ -68,33 +68,38 @@ function playerPlay() {
 
 function game() {
   score = [0, 0];
-  while (score[0] < 5 || score[1] < 5) {
+  while (score[0] < 5 && score[1] < 5) {
     player = playerPlay();
+    if (player == "forfeit") {
+      console.log("Player has left the match.");
+      score[1] = 5;
+      break;
+    }
+
     computer = computerPlay();
     roundWinner = playRound(player, computer);
     condition = roundWinner.split(" ")[0];
     if (condition == "Computer") {
       score[1]++;
       console.log(roundWinner);
+      console.log(`Player: ${score[0]} Computer: ${score[1]}`);
     } else if (condition == "Player") {
       score[0]++;
       console.log(roundWinner);
+      console.log(`Player: ${score[0]} Computer: ${score[1]}`);
     } else {
       console.log(roundWinner);
+      console.log(`Player: ${score[0]} Computer: ${score[1]}`);
     }
   }
-  if (score[0] == 5) {
-    console.log("Player has won the game.");
+  if (score[1] == 5) {
+    console.log("Computer has won the game.");
   } else {
-    console.log("Computer has won the game");
+    console.log("Player has won the game");
   }
 }
 
 function start() {
+  console.clear();
   game();
-  again = prompt("Wanna play another round? y/n");
-  while (again) {
-    game();
-    again = prompt("Wanna play another round?");
-  }
 }
