@@ -90,9 +90,11 @@ function game() {
   }
 }
 
-game();
-again = prompt("Wanna play another round?");
-while (again) {
+function start() {
   game();
-  again = prompt("Wanna play another round?");
+  again = prompt("Wanna play another round? y/n");
+  while (again) {
+    game();
+    again = prompt("Wanna play another round?");
+  }
 }
