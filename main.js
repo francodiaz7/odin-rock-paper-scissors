@@ -2,6 +2,26 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
         return "It's a tie."
     }
+    if (playerSelection == "rock") {
+        if (computerSelection == "paper") {
+            return "Computer win this round. Paper beats rock."
+        } else {
+            return "Player win this round. Rock beats scissors."
+        }
+    } else if (playerSelection == "paper") {
+        if (computerSelection == "rock") {
+            return "Player win this round. Paper beats rock."
+        } else {
+            return "Computer win this round. Scissors beats paper."
+        }
+    } else {
+        // playerSelection = "scissors"
+        if (computerSelection == "rock") {
+            return "Computer win this round. Rock beats scissors."
+        } else {
+            return "Player win this round. Scissors beats paper."
+        }
+    }
 }
 
 function computerPlay() {
