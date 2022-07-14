@@ -89,3 +89,10 @@ function game() {
     console.log("Computer has won the game");
   }
 }
+
+game();
+again = prompt("Wanna play another round?");
+while (again) {
+  game();
+  again = prompt("Wanna play another round?");
+}
