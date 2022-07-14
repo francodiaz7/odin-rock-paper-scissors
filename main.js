@@ -1,4 +1,8 @@
-function playRound(playerSelection, computerSelection)
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == computerSelection) {
+        return "It's a tie."
+    }
+}
 
 function computerPlay()
 
