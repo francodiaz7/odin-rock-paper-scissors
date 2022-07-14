@@ -1,6 +1,6 @@
 ## About
 
-This is a project assignment from The Odin Project about rock paper scissors using javascript.
+This is a project assignment from The Odin Project about the game "rock paper scissors" using javascript.
 
 ## Links
 
