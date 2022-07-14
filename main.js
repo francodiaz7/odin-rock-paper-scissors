@@ -4,7 +4,19 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function computerPlay()
+function computerPlay() {
+    const generateRandomNumber = (min, max) =>  {
+    return Math.floor(Math.random() * (max - min) + min);
+    };
+    computerOutput = generateRandomNumber(1,4);
+    if (computerOutput == 1) {
+        return "rock"
+    } else if (computerOutput == 2) {
+        return "paper"
+    } else {
+        return "scissors"
+    }
+}
 
 function playerPlay() {
     count = 0
@@ -29,7 +41,6 @@ function playerPlay() {
             return playerInput
         }
     }
-} 
-    return playerInput
+}
 
 function game()
